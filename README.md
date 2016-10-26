@@ -171,6 +171,11 @@ vi test.php
 <? php
 phpinfo();
 ```
+重启 nginx:
+```
+sudo nginx -s stop
+sudo nginx
+```
 
 打开浏览器，访问`localhost:8099`。可以看到关于 PHP 配置的信息。
 
@@ -291,7 +296,7 @@ sudo php-fpm
 
 ### 参考
 
-http://blog.csdn.net/suxianbaozi/article/details/40617885
-http://blog.csdn.net/pang040328/article/details/41259385
-http://blog.csdn.net/qq285744011/article/details/52810066
-http://www.xitongzhijia.net/xtjc/20150526/49276.html
+* http://blog.csdn.net/suxianbaozi/article/details/40617885
+* http://blog.csdn.net/pang040328/article/details/41259385
+* http://blog.csdn.net/qq285744011/article/details/52810066
+* http://www.xitongzhijia.net/xtjc/20150526/49276.html

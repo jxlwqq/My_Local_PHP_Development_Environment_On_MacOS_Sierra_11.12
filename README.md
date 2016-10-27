@@ -1,4 +1,4 @@
-macOS Sierra 已经帮我们预装了 Ruby、PHP(5.6)、Perl、Python 等常用的脚本语言，以及 Apache HTTP 服务器。由于 nginx 既能作为 HTTP 服务器也能作为反向代理服务器，且配置简单,这里我们用 nginx 代替 Apache 作为我们默认的 HTTP 服务器。
+macOS Sierra 11.12 已经帮我们预装了 Ruby、PHP(5.6)、Perl、Python 等常用的脚本语言，以及 Apache HTTP 服务器。由于 nginx 既能作为 HTTP 服务器也能作为反向代理服务器，且配置简单，这里我们用 nginx 代替 Apache 作为我们默认的 HTTP 服务器。喜欢用 Apache 的同学可以移步：[The Perfect Web Development Environment for Your New Mac](https://mallinson.ca/osx-web-development/)
 
 下面是我在 macOS Sierra 配置的 PHP 开发环境：
 

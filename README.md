@@ -143,8 +143,8 @@ vi test.conf
 将以下配置信息，写入 test.conf文件中：
 ```
 server {
-    listen       8099;
-    server_name  localhost;
+    listen 8099;
+    server_name localhost;
     root /home/www/php_project;
     rewrite . /index.php;
     location / {
@@ -161,7 +161,7 @@ server {
 }
 ```
 
-在上述的`/home/www/php_project`的目录下，我们创建一个 index.php文件：
+在上述的`/home/www/php_project`的目录下，我们创建一个 index.php 文件：
 ```
 cd /home/www/php_project
 vi test.php
@@ -179,7 +179,7 @@ sudo nginx
 
 打开浏览器，访问`localhost:8099`。可以看到关于 PHP 配置的信息。
 
-至此，MNMP(MacOS-nginx-MySQL-PHP)环境已经搭建完成。
+至此，MNMP(MacOS-nginx-MySQL-PHP) 环境已经搭建完成。
 
 ### 安装 PHP 扩展
 
@@ -207,7 +207,7 @@ sudo nginx
 
 #### 安装一些必要的依赖包
 
-安装 autoconf，PHP动态编译 phpize 时需要：
+安装 autoconf，PHP 动态编译 phpize 时需要：
 
 ```
 brew install autoconf

@@ -2,22 +2,22 @@ macOS Sierra 已经帮我们预装了 Ruby、PHP(5.6)、Perl、Python 等常用�
 
 下面是我在 macOS Sierra 配置的 PHP 开发环境：
 
-### 安装命令行终端 
+## 安装命令行终端 
 
 这里我们选择 [iTerm2](http://www.iterm2.com/)，iTerm2 功能强大，可以替代系统默认的命令行终端。下载解压后，将iTerm2 直接拖入"应用程序"目录。
 
-### 安装 IDE
+## 安装 IDE
 
 这里我们选择 [JetBrains PhpStorm](https://www.jetbrains.com/phpstorm/) 作为集成开发环境。这个应该是这个星球最棒的 PHP IDE 了。
 
-### 安装 Xcode
+## 安装 Xcode
 
 Xcode 是苹果出品的包含一系列工具及库的开发套件。
 
 通过 App Store 安装最新版本的 Xcode。我们一般不会用 Xcode 来开发 PHP 项目。但这一步也是必需的，因为 Xcode 会帮你附带安装一些如 Git 等必要的软件。当然你也可以通过源码包安装 Git。
 
 
-### 安装 Xcode Command Line Tools
+## 安装 Xcode Command Line Tools
 
 这一步会帮你安装许多常见的基于 Unix 的工具。Xcode 命令行工具作为 Xcode 的一部分，包含了 GCC 编译器。在命令行中执行以下命令即可安装：
 
@@ -25,7 +25,7 @@ Xcode 是苹果出品的包含一系列工具及库的开发套件。
 xcode-select --install
 ```
 
-### 安装包管理器
+## 安装包管理器
  
 [Homebrew](http://brew.sh/index_zh-cn.html) 作为 macOS 不可或缺的套件管理器，用来安装、升级以及卸载常用的软件。在命令行中执行以下命令即可安装：
 
@@ -40,7 +40,7 @@ cd "$(brew --repo)"
 git remote set-url origin git://mirrors.ustc.edu.cn/brew.git
 ```
 
-### 安装 HTTP 服务器
+## 安装 HTTP 服务器
 
 这里我们选择 nginx 代替系统自带的 Apache，作为我们的 HTTP 服务器：
 ```
@@ -55,7 +55,7 @@ nginx -h # nginx 帮助信息
 sudo nginx -s stop|quit|reopen|reload # 停止|退出|重启|重载 nginx 服务
 ```
 
-### 安装数据库
+## 安装数据库
 
 这里我们选择 MySQL 作为我们的数据库服务器：
 ```
@@ -74,7 +74,7 @@ mysqld
 mysql -u root -p
 ```
 
-### 开启 PHP-FPM
+## 开启 PHP-FPM
 
 nginx 本身不能处理 PHP，它只是个 HTTP 服务器，当接收一个 PHP 请求后，nginx 会将其交由 PHP 解释器处理，并把结果返回给客户端。nginx 一般是把请求发 FastCGI 管理进程处理，FastCGI 管理进程选择 CGI 子进程处理结果并返回被 nginx。
 
@@ -104,7 +104,7 @@ ps aux|grep php-fpm
 sudo kill php-fpm min pid # 杀死 php-fpm 最小的进程id
 ```
 
-### 配置 nginx.conf 文件
+## 配置 nginx.conf 文件
 
 通过以下命令可以查看 nginx.conf 文件的位置： 
 ```
@@ -181,13 +181,13 @@ sudo nginx
 
 至此，MNMP(MacOS-nginx-MySQL-PHP) 环境已经搭建完成。
 
-### 安装 PHP 扩展
+## 安装 PHP 扩展
 
 环境搭建完成后，你可能还需要安装一些 PHP 扩展，如 MemCache、Redis、Mongo、Solr 等。
 
 在安装 PHP 扩展之前，**你需要完成一些必要的操作**。
 
-#### 关闭 SIP
+### 关闭 SIP
 
 这是安装 PHP 扩展前的必要操作。如果跳过这一操作，即使你用 sudo 命令安装扩展，依旧会报 Operation not permitted 的错误。这是因为 OSX 10.11 El Capitan（或更高）新添加了一个新的安全机制叫系统完整性保护 System Integrity Protection (SIP)，所以对于以下目录：
 * /System 
@@ -205,7 +205,7 @@ sudo nginx
 
 当然，PHP 扩展安装完成后，就可以重新打开 SIP，方法同上，命令改为：`csrutil enable`。
 
-#### 安装一些必要的依赖包
+### 安装一些必要的依赖包
 
 安装 autoconf，PHP 动态编译 phpize 时需要：
 
@@ -225,15 +225,14 @@ mongo 扩展安装是可能会报 openssl 错误，解决方法如下：
 ln -s /usr/local/Cellar/openssl/1.0.2j/include/openssl /usr/include/openssl
 ```
 
-
-#### 正式安装扩展
+### 正式安装扩展
 
 这里有两种方法安装 PHP 扩展：
 
 * 通过 pecl 管理工具安装
 * 通过源码包安装
 
-##### 通过 pecl 管理工具安装
+#### 通过 pecl 管理工具安装
 
 首先安装 pecl：
 
@@ -259,7 +258,7 @@ sudo pecl install memcache
 sudo pecl install mongo
 ```
 
-##### 通过源码包安装
+#### 通过源码包安装
 
 除了通过 pecl 安装，我们还可以通过下载源码包来进行安装扩展：
 ```
@@ -294,7 +293,7 @@ sudo php-fpm
 
 打开浏览器，访问`localhost:8099`。查看扩展是否安装成功。
 
-### 参考
+## 参考
 
 * http://blog.csdn.net/suxianbaozi/article/details/40617885
 * http://blog.csdn.net/pang040328/article/details/41259385

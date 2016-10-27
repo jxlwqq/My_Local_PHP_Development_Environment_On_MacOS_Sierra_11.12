@@ -25,6 +25,8 @@ Xcode 是苹果出品的包含一系列工具及库的开发套件。
 xcode-select --install
 ```
 
+当 Xcode 和 Xcode Command Line Tools 安装完成后，你需要启动 Xcode，并点击同意接受许可协议，然后关闭 Xcode 就可以了。这一步骤也是必须的，否则Xcode包含的一系列开发工具都将不可用，例如 Git。
+
 ## 安装包管理器
  
 [Homebrew](http://brew.sh/index_zh-cn.html) 作为 macOS 不可或缺的套件管理器，用来安装、升级以及卸载常用的软件。在命令行中执行以下命令即可安装：

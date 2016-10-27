@@ -78,7 +78,7 @@ mysql -u root -p
 
 nginx 本身不能处理 PHP，它只是个 HTTP 服务器，当接收一个 PHP 请求后，nginx 会将其交由 PHP 解释器处理，并把结果返回给客户端。nginx 一般是把请求发 FastCGI 管理进程处理，FastCGI 管理进程选择 CGI 子进程处理结果并返回被 nginx。
 
-PHP-FPM是一个 PHP FastCGI 管理器，一开始只是 PHP 源代码的一个补丁，旨在将 FastCGI 进程管理整合进 PHP 包中。必须将它 patch 到 PHP 源代码中，在编译安装 PHP 后才可以使用。PHP 从版本 5.3 开始官方集成 PHP-FPM。
+PHP-FPM 是一个 PHP FastCGI 管理器，一开始只是 PHP 源代码的一个补丁，旨在将 FastCGI 进程管理整合进 PHP 包中。必须将它 patch 到 PHP 源代码中，在编译安装 PHP 后才可以使用。PHP 从版本 5.3 开始官方集成 PHP-FPM。
 
 添加 PHP-FPM 的配置文件：
 
@@ -156,7 +156,7 @@ server {
     location ~ \.php$ {
         include /usr/local/etc/nginx/fastcgi.conf;
         fastcgi_intercept_errors on;
-        fastcgi_pass   127.0.0.1:9000;
+        fastcgi_pass 127.0.0.1:9000;
     }
 }
 ```
@@ -168,7 +168,7 @@ vi test.php
 ```
 写入内容：
 ```
-<? php
+<?php
 phpinfo();
 ```
 重启 nginx:
@@ -194,7 +194,7 @@ sudo nginx
 * /sbin 
 * /usr 不包含(/usr/local/) 
 
-仅仅供系统使用，其它用户或者程序无法直接使用，而我们的 /usr/lib/php/extensions/ 则刚好在受保护范围内（误伤世界上最好的语言）。
+仅仅供系统使用，其它用户或者程序无法直接使用，而我们的 `/usr/lib/php/extensions/` 则刚好在受保护范围内（误伤世界上最好的语言）。
 
 所以解决方法就是禁掉 SIP 保护机制，步骤是：
 
@@ -213,7 +213,7 @@ sudo nginx
 brew install autoconf
 ```
 
-安装 openssl，安装某些 php 扩展如 mongo 时需要。
+安装 openssl，安装某些 PHP 扩展如 mongo 时需要：
 
 ```
 brew install openssl
@@ -228,7 +228,7 @@ ln -s /usr/local/Cellar/openssl/1.0.2j/include/openssl /usr/include/openssl
 
 #### 正式安装扩展
 
-这里有两种方法安装 php 扩展：
+这里有两种方法安装 PHP 扩展：
 
 * 通过 pecl 管理工具安装
 * 通过源码包安装

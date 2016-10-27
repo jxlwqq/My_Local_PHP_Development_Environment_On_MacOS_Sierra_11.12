@@ -209,7 +209,7 @@ sudo nginx
 
 ### 安装一些必要的依赖包
 
-安装 autoconf，PHP 动态编译 phpize 时需要：
+安装 autoconf，phpize 生成 PHP 编译配置时需要：
 
 ```
 brew install autoconf
@@ -267,10 +267,10 @@ sudo pecl install mongo
 wget http://pecl.php.net/get/redis-2.2.8.tgz
 tar -zxvf redis-2.2.8.tgz
 cd redis-2.2.8
-phpize
-./configure
-make
-sudo make install
+phpize # 生成 php 编译配置                 
+./configure # 编译配置检测
+make # 编译
+sudo make install # 安装
 ```
 
 扩展安装完成后，我们还需最后一步，修改`php.ini`文件，并重启 PHP-FPM：
